@@ -60,13 +60,15 @@ The notebook includes two inference demos:
 
 ## Preview
 
-### Sample image
+### Sample preview
 
-![Prediction sample](prediction%20(1).jpg)
+<img src="./preview.gif" alt="Detection preview" width="900" />
 
-### Demo video
+### Full videos
 
-- [result (2).mp4](result%20(2).mp4)
+- [Open the original MP4 demo](./result%20(2).mp4)
+
+The GIF is shown inline so GitHub can render it directly in the README. The MP4 file remains in the repo as the full-quality demo.
 
 ## Notebook
 
@@ -78,6 +80,7 @@ The main workflow is in:
 
 - `pytorch_faster_CNN_(3).ipynb` - training and inference notebook
 - `README.md` - project summary and media preview
+- `preview.gif` - inline preview for GitHub README
 - `prediction (1).jpg` - sample detection output
 - `result (2).mp4` - demo video
 
