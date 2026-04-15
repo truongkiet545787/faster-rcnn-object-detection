@@ -1,70 +1,68 @@
-Project Description
-1. Dataset
+Object Detection with Faster R-CNN
+📖 Overview
 
-Dataset được sử dụng trong dự án là Pascal VOC (hoặc dataset bạn đang dùng).
+This project implements an object detection model using Faster R-CNN with MobileNetV3 backbone. The goal is to detect and classify objects in images with high accuracy while maintaining lightweight computation.
 
-Bao gồm các ảnh và annotation cho bài toán object detection
-Annotation được lưu dưới dạng:
-XML (VOC format) hoặc COCO JSON (nếu bạn convert)
-Mỗi ảnh chứa:
-Bounding box (tọa độ vật thể)
-Label (class)
+ Dataset
 
-📂 Cấu trúc dữ liệu
-data/
-│── images/
+The model is trained on the Pascal VOC dataset (or custom dataset with similar format).
 
-│── annotations/
+Annotation format: XML (bounding boxes + labels)
+Number of classes: 20
+Data split: Train / Validation
+Each image contains multiple objects with corresponding bounding boxes
+⚙️ Preprocessing
+Resize images to a fixed size (e.g., 320x320)
+Normalize using ImageNet statistics
+Convert annotations to tensors (boxes, labels)
 
-│── train.txt / val.txt
-2. Preprocessing
+Data Augmentation:
 
-Các bước tiền xử lý dữ liệu trước khi đưa vào model:
-
-Resize ảnh về kích thước phù hợp (ví dụ: 320 hoặc 640)
-Normalize ảnh theo chuẩn ImageNet:
-mean = [0.485, 0.456, 0.406]
-std  = [0.229, 0.224, 0.225]
-//  bước này không cần vì model load lên đã được Normalize sẵn //
-3. Model
-
-Mô hình sử dụng:
-
- Faster R-CNN với backbone MobileNetV3
-
- Kiến trúc:
-Backbone: MobileNetV3 (lightweight)
-Feature Pyramid Network (FPN)
-
+Random Horizontal Flip
+Random Crop
+Color Jitter
+ Model
+Architecture: Faster R-CNN
+Backbone: MobileNetV3 + FPN
+Components:
 Region Proposal Network (RPN)
-ROI Head:
-Classification
-Bounding box regression
+ROI Head (classification + bounding box regression)
 
-⚙️ Tùy chỉnh:
-model = fasterrcnn_mobilenet_v3_large_320_fpn()
-model.roi_heads.box_predictor = FastRCNNPredictor(
-    in_channels, num_classes
-)
+Customization:
 
-4. Training
-⚙️ Thông số:
+Adjusted number of output classes
+Fine-tuned for detection task🚀 Training
 Optimizer: SGD
 Learning rate: 0.001
 Momentum: 0.9
 Batch size: 8
 Epochs: 10
 
-📈 Logging:
-Sử dụng TensorBoard:
-runs/exp1/
+Logging: TensorBoard
+Checkpoint: Best model saved during training
 
-💾 Checkpoint:
-Lưu model tốt nhất:
-checkpoint/best_model.pt
+ Evaluation
+Metric: mAP (mean Average Precision)
+Monitored loss and performance across epochs
+ Demo / Inference
 
-5. Evaluation
-Metric chính: mAP (mean Average Precision)
-Theo dõi:
-Loss
-mAP qua từng epoch
+Pipeline:
+
+Load trained model
+Input image
+Predict bounding boxes & labels
+Visualize results
+
+Output:
+
+Bounding boxes
+Class labels
+Confidence scores
+
+ Requirements
+torch
+torchvision
+opencv-python
+numpy
+matplotlib
+tensorboard
