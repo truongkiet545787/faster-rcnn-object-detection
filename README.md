@@ -9,10 +9,13 @@ XML (VOC format) hoặc COCO JSON (nếu bạn convert)
 Mỗi ảnh chứa:
 Bounding box (tọa độ vật thể)
 Label (class)
+
 📂 Cấu trúc dữ liệu
 data/
 │── images/
+
 │── annotations/
+
 │── train.txt / val.txt
 2. Preprocessing
 
@@ -51,9 +54,11 @@ Epochs: 10
 📈 Logging:
 Sử dụng TensorBoard:
 runs/exp1/
+
 💾 Checkpoint:
 Lưu model tốt nhất:
 checkpoint/best_model.pt
+
 5. Evaluation
 Metric chính: mAP (mean Average Precision)
 Theo dõi:
