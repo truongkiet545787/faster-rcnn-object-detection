@@ -30,20 +30,23 @@ std  = [0.229, 0.224, 0.225]
 
 Mô hình sử dụng:
 
-👉 Faster R-CNN với backbone MobileNetV3
+ Faster R-CNN với backbone MobileNetV3
 
-🧠 Kiến trúc:
+ Kiến trúc:
 Backbone: MobileNetV3 (lightweight)
 Feature Pyramid Network (FPN)
+
 Region Proposal Network (RPN)
 ROI Head:
 Classification
 Bounding box regression
+
 ⚙️ Tùy chỉnh:
 model = fasterrcnn_mobilenet_v3_large_320_fpn()
 model.roi_heads.box_predictor = FastRCNNPredictor(
     in_channels, num_classes
 )
+
 4. Training
 ⚙️ Thông số:
 Optimizer: SGD
@@ -51,6 +54,7 @@ Learning rate: 0.001
 Momentum: 0.9
 Batch size: 8
 Epochs: 10
+
 📈 Logging:
 Sử dụng TensorBoard:
 runs/exp1/
