@@ -66,9 +66,9 @@ The notebook includes two inference demos:
 
 ### Full videos
 
-- [Open the original MP4 demo](./result%20(2).mp4)
+- [Open the 4-second demo from result (4)](./result%20(4)-4s.mp4)
 
-The GIF is shown inline so GitHub can render it directly in the README. The MP4 file remains in the repo as the full-quality demo.
+The GIF is shown inline so GitHub can render it directly in the README. The MP4 link points to a trimmed 4-second demo for faster preview.
 
 ## Notebook
 
@@ -82,7 +82,7 @@ The main workflow is in:
 - `README.md` - project summary and media preview
 - `preview.gif` - inline preview for GitHub README
 - `prediction (1).jpg` - sample detection output
-- `result (2).mp4` - demo video
+- `result (4)-4s.mp4` - trimmed demo video
 
 ## Notes
 
